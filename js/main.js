@@ -56,7 +56,7 @@ $(document).ready(function(){
 		var productNumber = $(this).attr( 'id' );
 
 		$.ajax({
-			url: "../products/product"+productNumber+".html",
+			url: "./products/product"+productNumber+".html",
 			cache: false,
 			success: function(html){
 				modal.open({content: $(html)});
