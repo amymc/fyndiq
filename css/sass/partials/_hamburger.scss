@@ -1,0 +1,68 @@
+
+ #toggle {
+  padding: 30px 25px;
+  z-index: 1600;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  float: left;
+  &:hover{
+    transition: top 0.4s;
+    .burger:before{
+      top: -13px;
+    }
+    .burger:after{
+      top: 9px;
+    }
+  }
+}
+
+.burger{
+  transition: all 0.3s;
+  width: 28px;
+  height: 4px;
+  margin: 10px 0;
+  z-index: 1400;
+  background: $body_background;
+}
+
+.burger:before {
+  top: -12px;
+}
+
+.burger:after {
+  top: 8px;
+}
+
+#toggle.open .burger{
+  background-color: transparent;
+}
+
+#toggle.open .burger:before{
+  @include transform(rotate(-45deg));
+  background: #fff;
+  top: 3px;
+}
+
+#toggle.open .burger:after{
+  @include transform(rotate(45deg));
+  background: #fff;
+  top: 0px;
+}
+
+.burger:after, .burger:before {
+  transition: all 0.3s;
+  content: '';
+  display: block;
+  width: 28px;
+  height: 4px;
+  background: $body_background;
+  position: relative;
+}
+
+.burger.burger-hide{
+  @include transform(translate3d(-300px, 0, 0));
+  overflow-y: hidden;
+}

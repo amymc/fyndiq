@@ -2,134 +2,219 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="css/main.css">
-        <!--link rel="stylesheet" href="styles/default.css">
-        <link rel="stylesheet" href="styles/component.css"-->
-
 
     </head>
     <body>
 
-        <header>
-            <h1>Skateboard Store</h1>
-            <div class="cart-container">
-                <div class="cart-info simpleCart_quantity"></div>
-                <div class="cart-info simpleCart_total"></div>
-                <img class="cart-info cart-icon" src="images/cart.png" alt="shopping cart"/>
-                <div class="cart-details">
-                    <div class="simpleCart_items"></div>
+        <div id="trigger-overlay">
+            <a href="#" id="toggle" class="toggle">
+                <div class="burger">
                 </div>
-            </div>    
-        </header>
-
-        <section class="store-items">
-                <div class="item col" id="1">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_fresh_prints.jpg" alt="Penny skateboard - Fresh prints"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title">Fresh Prints </div>
-                        <div class="price"> $120</div>
-                    </div>
-                </div>
-                <div class="item col-center" id="2">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_space.jpg" alt="Penny skateboard - Outer space"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title">Outer space print</div>
-                        <div class="price"> $125.99</div>
-                    </div>
-                </div>
-                <div class="item col" id="3">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_floral.jpg" alt="Penny skateboard - Floral print"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title"> Floral print</div>
-                        <div class="price"> $125.99</div>
-                    </div>
-                </div>
-                <div class="item col" id="4">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_pastel_yellow.jpg" alt="Penny skateboard - Pastel yellow"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title"> Pastel yellow</div>
-                        <div class="price"> $110</div>
-                    </div>
-                </div>
-                <div class="item col-center" id="5">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_palm_trees.jpg" alt="Penny skateboard - Palm tree print"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title"> Palm tree print</div>
-                        <div class="price"> $120</div>
-                    </div>
-                </div>
-                <div class="item col" id="6">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_black.jpg" alt="Penny skateboard - Black"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title"> Black</div>
-                        <div class="price"> $112</div>
-                    </div>
-                </div> 
-                <div class="item col" id="7">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_native.jpg" alt="Penny skateboard - Native American print"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title">Purple &amp; red print</div>
-                        <div class="price"> $120</div>
-                    </div>
-                </div> 
-                <div class="item col-center" id="8">
-                    <div class="image-container">
-                        <div class="covering background"></div>
-                        <div class="covering foreground"><a href="#">More info</a></div>
-                        <img class="resize" src="images/penny_red.jpg" alt="Penny skateboard - Red"/>
-                    </div>
-                    <div class="product-info">
-                        <div class="title"> Red</div>
-                        <div class="price"> $105</div>
-                    </div>
-                </div>
-
+            </a>
         </div>
 
+        <div class="menu-overlay">
+            <nav>
+                <ul>
+                    <li><a>Home</a></li>
+                    <li><a>About</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Contact</a></li>
+                <ul>
+            </nav>
+        </div>
+
+        <div id="site-container" class="site-container">
+
+            <div class="cart-details animation-effect">
+                <a class="close icon sidebar" href="#">&times;</a>
+                <div class="empty-msg"> Your cart is empty dude!</div>
+                <div id="cart-total" class="cart-total">
+                    Subtotal: <span class="simpleCart_grandTotal"></span> 
+                </div>
+                <div class="simpleCart_items">
+                </div>  
+            </div>
+
+            <div class="header-container">
+                <header>
+
+                    <h1>Skateboard Store</h1>
+
+                    <div class="cart-container">
+                        <div class="cart-info simpleCart_quantity"></div>
+                        <div class="cart-info simpleCart_total"></div>
+                        <i class="cart-info cart-icon ion-ios-cart"></i>
+                    </div>
+                </header>
+            </div>
+
+            <div class="site-wrapper">
+
+                <div class="wrapper-inner"><!-- extra div for emulating position:fixed of the menu -->
+
+                    <section id="store-items" class="store-items">
+
+                        <div class="item col" id="1">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_carlton.jpg" alt="Penny skateboard - Carlton"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title">Carlton </div>
+                                <div class="price"> $120</div>
+                            </div>
+                        </div>
+                        <div class="item col-center" id="2">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_space.jpg" alt="Penny skateboard - Outer space"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title">Outer space print</div>
+                                <div class="price"> $125.99</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="3">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_floral.jpg" alt="Penny skateboard - Floral print"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Floral print</div>
+                                <div class="price"> $125.99</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="4">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_pastel_mint.jpg" alt="Penny skateboard - Pastel mint"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Pastel mint</div>
+                                <div class="price"> $110</div>
+                            </div>
+                        </div>
+                        <div class="item col-center" id="5">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_slater.jpg" alt="Penny skateboard - Slater"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Slater</div>
+                                <div class="price"> $120</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="6">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_black.jpg" alt="Penny skateboard - Black"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Black</div>
+                                <div class="price"> $112</div>
+                            </div>
+                        </div> 
+                        <div class="item col" id="7">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_glow.jpg" alt="Penny skateboard - Glow in the dark"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title">Glow in the dark</div>
+                                <div class="price"> $120</div>
+                            </div>
+                        </div> 
+                        <div class="item col-center" id="8">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_red.jpg" alt="Penny skateboard - Red"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Red</div>
+                                <div class="price"> $105</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="9">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_polka.jpg" alt="Penny skateboard - Polka dots"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title">Polka dot print </div>
+                                <div class="price"> $120</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="10">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_pink.jpg" alt="Penny skateboard - Pink"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title">Pink</div>
+                                <div class="price"> $110</div>
+                            </div>
+                        </div>
+                        <div class="item col-center" id="11">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_blue.jpg" alt="Penny skateboard - Floral print"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Blue</div>
+                                <div class="price"> $110</div>
+                            </div>
+                        </div>
+                        <div class="item col" id="12">
+                            <div class="image-container">
+                                <div class="covering background"></div>
+                                <div class="covering foreground"><a href="#">More info</a></div>
+                                <img class="resize" src="images/product_images/penny_hunting.jpg" alt="Penny skateboard - Hunting print"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="title"> Hunting print</div>
+                                <div class="price"> $125.99</div>
+                            </div>
+                        </div>
+             
+                    </section>
+                </div><!-- /wrapper-inner -->
+            </div><!-- /site-wrapper -->
+
+        </div><!-- /site-container -->
+
         <div class="modal">
-            <div class="modal-container">
+            <div class="modal-container simpleCart_shelfItem">
                 <div class="content"></div>
-                <a class="close" href="#"></a>
+                <div class="button-wrapper">
+                    <div class="cart-button">
+                        <div class="buy"><a class="item_add" href="javascript:;"> Add to Cart </a></div>
+                        <div class="bought">Added!</div>
+                    </div>
+                </div>
+                <a class="close icon" href="#">&times;</a>
             </div>
         </div>
 
-        <div class="overlay"></div><!-- the overlay element -->
- 
-        </section>
+        <div class="modal-overlay"></div>
+
+
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js"></script>
         <script src="js/main.js"></script>
   
-        <!--script src="js/modal/classie.js"></script-->
-        <!--script src="js/modal/modalEffects.js" async="true"></script-->
     </body>
   </html> 
