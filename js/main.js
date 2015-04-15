@@ -38,6 +38,7 @@ var skateStore = (function(){
     function openModal() {
 
         $item.click(function(){
+            $content.empty();
             productNumber = $(this).attr( 'id' );
             $.ajax({
                 url: "./products/product"+productNumber+".html",
