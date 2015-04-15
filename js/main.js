@@ -44,7 +44,7 @@ var skateStore = (function(){
                 url: "./products/product"+productNumber+".html",
                 cache: false,
                 success: function(html){
-                    $content.empty().append(html);
+                    $content.append(html);
                 }
             });
         });

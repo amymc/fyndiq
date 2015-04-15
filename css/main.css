@@ -296,44 +296,46 @@
 /* line 43, sass/partials/_modal.scss */
 .modal-container .content {
   overflow: hidden;
+  display: block;
+  height: 300px;
 }
 
-/* line 48, sass/partials/_modal.scss */
+/* line 50, sass/partials/_modal.scss */
 .show .modal-container {
   transform: scale(1);
   opacity: 1;
 }
 
-/* line 53, sass/partials/_modal.scss */
+/* line 55, sass/partials/_modal.scss */
 .modal-overlay.show, .modal.show {
   opacity: 1;
   visibility: visible;
 }
 
-/* line 58, sass/partials/_modal.scss */
+/* line 60, sass/partials/_modal.scss */
 .title-section {
   text-align: center;
 }
-/* line 60, sass/partials/_modal.scss */
+/* line 62, sass/partials/_modal.scss */
 .title-section > .item_price {
   display: inline-block;
   font-weight: bold;
 }
 
-/* line 66, sass/partials/_modal.scss */
+/* line 68, sass/partials/_modal.scss */
 .full-description {
   text-align: justify;
   float: right;
   width: 60%;
 }
 
-/* line 72, sass/partials/_modal.scss */
+/* line 74, sass/partials/_modal.scss */
 .full-image {
   height: 220px;
   float: left;
 }
 
-/* line 77, sass/partials/_modal.scss */
+/* line 79, sass/partials/_modal.scss */
 input[type="text"] {
   padding: 10px;
   border: 1px solid #fff;
@@ -341,19 +343,19 @@ input[type="text"] {
   transition: box-shadow 0.3s, border 0.3s;
 }
 
-/* line 83, sass/partials/_modal.scss */
+/* line 85, sass/partials/_modal.scss */
 input[type="text"]:focus {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
 
-/* line 88, sass/partials/_modal.scss */
+/* line 90, sass/partials/_modal.scss */
 .purchase-wrapper {
   overflow: hidden;
   float: right;
 }
 
-/* line 99, sass/partials/_modal.scss */
+/* line 101, sass/partials/_modal.scss */
 .cart-button {
   cursor: pointer;
   display: inline-block;
@@ -394,17 +396,17 @@ input[type="text"]:focus {
     transform: translateZ(-100px) rotateX(-90deg);
   }
 }
-/* line 126, sass/partials/_modal.scss */
+/* line 128, sass/partials/_modal.scss */
 .animate .buy {
   transform: translate3d(-300px, 0, 0);
 }
 
-/* line 130, sass/partials/_modal.scss */
+/* line 132, sass/partials/_modal.scss */
 .animate .buy {
   transform: translate3d(300px, 0, 0);
 }
 
-/* line 134, sass/partials/_modal.scss */
+/* line 136, sass/partials/_modal.scss */
 .buy {
   padding: 10px 5px;
   border-radius: 5px;
@@ -412,20 +414,20 @@ input[type="text"]:focus {
   background-color: #5D3380;
   text-align: center;
 }
-/* line 143, sass/partials/_modal.scss */
+/* line 145, sass/partials/_modal.scss */
 .buy:hover {
   background: #fff;
 }
-/* line 145, sass/partials/_modal.scss */
+/* line 147, sass/partials/_modal.scss */
 .buy:hover a {
   color: #5D3380;
 }
-/* line 149, sass/partials/_modal.scss */
+/* line 151, sass/partials/_modal.scss */
 .buy a {
   color: #fff;
 }
 
-/* line 155, sass/partials/_modal.scss */
+/* line 157, sass/partials/_modal.scss */
 .bought {
   padding: 10px 5px;
   border-radius: 5px;
@@ -436,16 +438,16 @@ input[type="text"]:focus {
   display: block;
 }
 
-/* line 166, sass/partials/_modal.scss */
+/* line 168, sass/partials/_modal.scss */
 .quantity-input {
   float: left;
   margin-top: 7px;
 }
-/* line 169, sass/partials/_modal.scss */
+/* line 171, sass/partials/_modal.scss */
 .quantity-input .icon {
   float: left;
 }
-/* line 172, sass/partials/_modal.scss */
+/* line 174, sass/partials/_modal.scss */
 .quantity-input .item_Quantity {
   float: left;
   border: 1px solid black;
@@ -454,7 +456,7 @@ input[type="text"]:focus {
   margin: 0 5px;
 }
 
-/* line 181, sass/partials/_modal.scss */
+/* line 183, sass/partials/_modal.scss */
 .icon {
   font-size: 28px;
   width: 32px;
@@ -463,23 +465,23 @@ input[type="text"]:focus {
   text-align: center;
   border-radius: 50%;
 }
-/* line 188, sass/partials/_modal.scss */
+/* line 190, sass/partials/_modal.scss */
 .icon.sidebar {
   color: #fff;
   border: 2px solid #fff;
 }
-/* line 192, sass/partials/_modal.scss */
+/* line 194, sass/partials/_modal.scss */
 .icon:hover {
   color: #5D3380;
   border: 2px solid #5D3380;
 }
 
-/* line 198, sass/partials/_modal.scss */
+/* line 200, sass/partials/_modal.scss */
 .plus {
   position: relative;
 }
 
-/* line 202, sass/partials/_modal.scss */
+/* line 204, sass/partials/_modal.scss */
 .close {
   position: absolute;
   top: 10px;
