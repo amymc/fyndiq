@@ -31,3 +31,10 @@ a{
     color: $body_background;
   }
 }
+
+.site-wrapper{
+  height: 100%;
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+}

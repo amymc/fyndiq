@@ -4,7 +4,7 @@
 
 
 .site-container,
-.site-wrapper{
+.wrapper-outer{
 	height: 100%;
 }
 
@@ -19,7 +19,7 @@
 	overflow: hidden;
 }
 
-.site-wrapper {
+.wrapper-outer {
 	position: relative;
 	left: 0;
 	z-index: 900;

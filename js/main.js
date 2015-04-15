@@ -1,86 +1,77 @@
 var skateStore = (function(){
 
-    var triggerBttn = $('#toggle'),
-        overlay = $('.menu-overlay'),
-        method = {},
-        $overlay = $('.modal-overlay'),
-        $modal = $('.modal'),
-        $content = $('.content'),
-        $close = $('.close'),
-        $siteWrapper = $('.site-wrapper'),
-        productNumber;
+    var $triggerBttn = $('#toggle'),
+        $menuOverlay = $('#menu-overlay'),
+        $modalOverlay = $('#modal-overlay'),
+        $modal = $('#modal'),
+        $content = $('#content'),
+        $modalClose = $('#modal .close'),
+        $item = $('.item'),
+        $outerWrapper = $('#wrapper-outer'),
+        $siteContainer= $('#site-container'),
+        $burger = $('#burger'),
+        $emptyMsg = $('#empty-msg'),
+        $cartItems = $('.simpleCart_items'),
+        $cartTotal = $('#cart-total'),
+        productNumber, newVal;
 
 
     function openMenu() {
 
-        triggerBttn.click(toggleOverlay);
+        $triggerBttn.click(toggleOverlay);
 
         function toggleOverlay() {
-            if ($(overlay).hasClass('open')){
-                $(overlay).removeClass('open');
-                var over = $(overlay).addClass('closed');
-                $(triggerBttn).removeClass('open');
+            if ($menuOverlay.hasClass('open')){
+                $menuOverlay.addClass('closed');
                 setTimeout(function() {
-                    over.removeClass('closed');
+                    //need to remove this so the text will animate 
+                    //from the top the next time the menu is opened
+                    $menuOverlay.removeClass('closed');
                 }, 400);
             }
-            else{
-                $(overlay).addClass('open');
-                $(triggerBttn).addClass('open');
-            }
-        }        
+            $menuOverlay.toggleClass('open');
+            $triggerBttn.toggleClass('open');
+        }
     }
 
 
-    function loadProducts() {
+    function openModal() {
 
-        $('.item').click(function(){
+        $item.click(function(){
             productNumber = $(this).attr( 'id' );
             $.ajax({
                 url: "./products/product"+productNumber+".html",
                 cache: false,
                 success: function(html){
-                    openModal({content: $(html)});
-                    //modal.open({content: $(html).filter('.product.'+ productNumber)});
+                    $content.empty().append(html);
                 }
             });
         });
-    }
 
+        $item.add($modalClose).click(function(){
+            $outerWrapper.toggleClass('fixed');
+            $modal.toggleClass('show');
+            $modalOverlay.toggleClass('show'); 
+        })
 
-    function openModal(settings){
-        $content.empty().append(settings.content);
-        $siteWrapper.addClass('fixed');
-        $modal.addClass('show');
-        $overlay.addClass('show');
-        $close.click(closeModal);
-    }
-
-
-    function closeModal(){
-        $siteWrapper.removeClass('fixed');
-        $modal.removeClass('show');
-        $overlay.removeClass('show');
-        $content.empty();
     }
 
 
     function changeQuantity() {
 
-        $(".modal").on("click", ".icon", function() {
+        $modal.on("click", ".icon", function() {
 
             var $button = $(this);
             var oldValue = $button.parent().find("input").val();
-            var newVal;
 
             if ($button.text() == "+") {
                 var newVal = parseFloat(oldValue) + 1;
-            } 
+            }
             else {
                 // Don't allow decrementing below one
                 if (oldValue > 1) {
                     newVal = parseFloat(oldValue) - 1;
-                } 
+                }
                 else {
                     newVal = 1;
                 }
@@ -92,32 +83,15 @@ var skateStore = (function(){
 
     function openCart() {
 
-        $('.site-container').click(function(event){
-          toggleSidebar();
+        $siteContainer.click(function(event){
+      		toggleSidebar();
         });
 
         function toggleSidebar(){
-            if ($('.site-container').hasClass('cart-details-open')){
-                $('.site-container').removeClass('cart-details-open');
-                $('.site-container').removeClass('animation-effect');
-                $('.empty-msg').css('display', 'none');
-                $('.simpleCart_items').css('display', 'block');
-                $('.burger').removeClass('burger-hide');
-            }
-            else if ($(event.target).hasClass('cart-icon')){
-                if(simpleCart.items().length == 0){
-                    $('.empty-msg').css('display', 'block');
-                    $('.simpleCart_items').css('display', 'none');
-                    $('#cart-total').css('display', 'none');
-                }
-                else{
-                    $('.empty-msg').css('display', 'none');
-                    $('.simpleCart_items').css('display', 'block');
-                    $('#cart-total').css('display', 'block');
-                }
-                $('.burger').addClass('burger-hide');
-                $('.site-container').addClass('cart-details-open');
-                $('.site-container').addClass('animation-effect');
+            if (($(event.target).hasClass('cart-icon')) || (($siteContainer.hasClass('cart-details-open')) && ($(event.target).parents('.site-wrapper').length || $(event.target).hasClass('close')))){
+                $siteContainer.toggleClass('cart-details-open');
+                $siteContainer.toggleClass('animation-effect');
+                $burger.toggleClass('burger-hide');
             }
         }
     }
@@ -142,16 +116,22 @@ var skateStore = (function(){
     function isCartEmpty(){
         simpleCart.bind( 'update' , function( item ){
             if (simpleCart.grandTotal() === 0){
-                $('.empty-msg').css('display', 'block');
-                $('.simpleCart_items').css('display', 'none');
-                $('#cart-total').css('display', 'none');
-             } 
+                $emptyMsg.css('display', 'block');
+                $cartItems.css('display', 'none');
+                $cartTotal.css('display', 'none');
+            }
+             else{
+                $emptyMsg.css('display', 'none');
+                $cartItems.css('display', 'block');
+                $cartTotal.css('display', 'block');
+            }
         });
     }
 
+
     return {
         openMenu: openMenu(),
-        loadProducts: loadProducts(),
+        openModal: openModal(),
         changeQuantity: changeQuantity(),
         openCart: openCart(),
         simpleCart: simpleCart(),

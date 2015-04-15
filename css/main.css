@@ -1,22 +1,30 @@
 /* line 2, sass/partials/_cart.scss */
 .cart-details {
   position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 100;
   visibility: hidden;
   width: 300px;
   height: 100%;
-  background: #444;
+  overflow-y: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  z-index: 1;
+  opacity: 1;
+  color: #fff;
+  background-color: #383838;
+  display: block;
+  -webkit-transform: translate3d(0, 0, -300px);
+  transform: translate3d(0, 0, -300px);
 }
-/* line 13, sass/partials/_cart.scss */
+/* line 21, sass/partials/_cart.scss */
 .cart-details::-webkit-scrollbar {
   display: none;
 }
 
-/* line 18, sass/partials/_cart.scss */
+/* line 26, sass/partials/_cart.scss */
 .cart-details::after {
   position: absolute;
   top: 0;
@@ -30,7 +38,7 @@
   transition: opacity 0.5s;
 }
 
-/* line 31, sass/partials/_cart.scss */
+/* line 39, sass/partials/_cart.scss */
 .cart-details-open .cart-details::after {
   width: 0;
   height: 0;
@@ -39,64 +47,73 @@
   transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
 }
 
-/* line 39, sass/partials/_cart.scss */
+/* line 47, sass/partials/_cart.scss */
 .empty-msg {
   display: none;
   margin-top: 60px;
   text-align: center;
 }
 
-/* line 45, sass/partials/_cart.scss */
+/* line 53, sass/partials/_cart.scss */
 .itemRow {
   border-bottom: 1px solid #666666;
   padding: 20px 5px;
   overflow: hidden;
 }
 
-/* line 51, sass/partials/_cart.scss */
+/* line 60, sass/partials/_cart.scss */
 .simpleCart_items {
   border-top: 1px solid #666666;
   margin-top: 30px;
 }
-/* line 54, sass/partials/_cart.scss */
+/* line 63, sass/partials/_cart.scss */
 .simpleCart_items .headerRow {
   display: none;
 }
-/* line 57, sass/partials/_cart.scss */
+/* line 66, sass/partials/_cart.scss */
 .simpleCart_items .item-thumb img {
   width: 80px;
   margin: 0 15px 0 10px;
   float: left;
 }
-/* line 62, sass/partials/_cart.scss */
+/* line 71, sass/partials/_cart.scss */
 .simpleCart_items .item-name {
   margin: 5px 0 10px 0;
 }
-/* line 65, sass/partials/_cart.scss */
+/* line 74, sass/partials/_cart.scss */
 .simpleCart_items .item-quantity, .simpleCart_items .item-price, .simpleCart_items .item-cell {
   display: inline-block;
 }
-/* line 68, sass/partials/_cart.scss */
+/* line 77, sass/partials/_cart.scss */
 .simpleCart_items .item-cell {
   margin: 0 6px;
   font-weight: 300;
   font-size: 14px;
 }
-/* line 73, sass/partials/_cart.scss */
+/* line 82, sass/partials/_cart.scss */
 .simpleCart_items .item-remove {
   padding: 10px 5px;
   border-radius: 5px;
+  border: 2px solid #5D3380;
   background-color: #5D3380;
   width: 80px;
   text-align: center;
   margin: 15px auto 0;
 }
-/* line 80, sass/partials/_cart.scss */
+/* line 90, sass/partials/_cart.scss */
 .simpleCart_items .item-remove a {
   color: #fff;
 }
+/* line 93, sass/partials/_cart.scss */
+.simpleCart_items .item-remove:hover {
+  background-color: #fff;
+}
+/* line 95, sass/partials/_cart.scss */
+.simpleCart_items .item-remove:hover a {
+  color: #5D3380;
+}
 
-/* line 86, sass/partials/_cart.scss */
+/* line 102, sass/partials/_cart.scss */
 .animation-effect.site-container {
   -webkit-perspective: 1500px;
   perspective: 1500px;
@@ -104,18 +121,14 @@
   perspective-origin: 0% 50%;
 }
 
-/*.cart-details-open .site-wrapper {
-  -webkit-transform: translateZ(0);
-  position: fixed;
-}*/
-/* line 99, sass/partials/_cart.scss */
-.animation-effect.cart-details-open .site-wrapper {
+/* line 109, sass/partials/_cart.scss */
+.animation-effect.cart-details-open .wrapper-outer, .animate.itemRow {
   -webkit-transform: translate3d(-300px, 0, 0);
   transform: translate3d(-300px, 0, 0);
   overflow-y: hidden;
 }
 
-/* line 105, sass/partials/_cart.scss */
+/* line 115, sass/partials/_cart.scss */
 .animation-effect.cart-details {
   z-index: 1;
   opacity: 1;
@@ -123,7 +136,7 @@
   transform: translate3d(0, -100%, 0);
 }
 
-/* line 112, sass/partials/_cart.scss */
+/* line 122, sass/partials/_cart.scss */
 .animation-effect.cart-details-open .animation-effect.cart-details {
   visibility: visible;
   -webkit-transition-timing-function: ease-in-out;
@@ -136,38 +149,7 @@
   transition-speed: 0.2s;
 }
 
-/* line 125, sass/partials/_cart.scss */
-.cart-details {
-  overflow-y: scroll;
-  position: fixed;
-  width: 200px;
-  top: 0;
-  bottom: 0;
-  right: -200px;
-  z-index: 2000;
-  background-color: #383838;
-  display: block;
-  color: #fff;
-}
-
-/* line 138, sass/partials/_cart.scss */
-.cart-details {
-  position: absolute;
-  top: 0;
-  right: 0;
-  /*z-index: 100;*/
-  visibility: hidden;
-  width: 300px;
-  height: 100%;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  z-index: 1;
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, -300px);
-  transform: translate3d(0, 0, -300px);
-}
-
-/* line 154, sass/partials/_cart.scss */
+/* line 134, sass/partials/_cart.scss */
 .cart-total {
   margin-top: 60px;
   text-align: center;
@@ -296,7 +278,7 @@
   height: 100%;
   background-color: rgba(250, 250, 250, 0.7);
   visibility: hidden;
-  z-index: 1000;
+  z-index: 1600;
   transition: all 0.3s;
 }
 
@@ -352,12 +334,6 @@
 }
 
 /* line 77, sass/partials/_modal.scss */
-.quantity-input {
-  float: right;
-  display: inline-block;
-}
-
-/* line 82, sass/partials/_modal.scss */
 input[type="text"] {
   padding: 10px;
   border: 1px solid #fff;
@@ -365,118 +341,145 @@ input[type="text"] {
   transition: box-shadow 0.3s, border 0.3s;
 }
 
-/* line 88, sass/partials/_modal.scss */
+/* line 83, sass/partials/_modal.scss */
 input[type="text"]:focus {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
 
-/* line 94, sass/partials/_modal.scss */
-.button-wrapper {
-  -webkit-perspective: 1000px;
-  width: 150px;
-  height: 100px;
+/* line 88, sass/partials/_modal.scss */
+.purchase-wrapper {
+  overflow: hidden;
+  float: right;
 }
 
-/* line 100, sass/partials/_modal.scss */
+/* line 99, sass/partials/_modal.scss */
 .cart-button {
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 1s;
   cursor: pointer;
   display: inline-block;
-  width: 100px;
-  transform: translateZ(-100px);
   width: 150px;
   height: 100px;
-}
-/* line 112, sass/partials/_modal.scss */
-.cart-button .active {
-  transform: translateZ(-100px) rotateX(-90deg);
+  margin: 5px 5px 0 15px;
+  margin-left: 15px;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  	/*&.animate{
+  		-webkit-animation-name: rotate;
+    	-webkit-animation-duration: 1s;
+    	-webkit-animation-fill-mode: forwards;
+  	}*/
 }
 
-/* line 120, sass/partials/_modal.scss */
+@-moz-keyframes rotate {
+  from {
+    transform: translateZ(0px) rotateX(0deg);
+  }
+  to {
+    transform: translateZ(-100px) rotateX(-90deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: translateZ(0px) rotateX(0deg);
+  }
+  to {
+    transform: translateZ(-100px) rotateX(-90deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: translateZ(0px) rotateX(0deg);
+  }
+  to {
+    transform: translateZ(-100px) rotateX(-90deg);
+  }
+}
+/* line 126, sass/partials/_modal.scss */
+.animate .buy {
+  transform: translate3d(-300px, 0, 0);
+}
+
+/* line 130, sass/partials/_modal.scss */
+.animate .buy {
+  transform: translate3d(300px, 0, 0);
+}
+
+/* line 134, sass/partials/_modal.scss */
 .buy {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(100px) rotateY(0deg);
   padding: 10px 5px;
   border-radius: 5px;
+  border: 2px solid #5D3380;
   background-color: #5D3380;
-  width: 80px;
   text-align: center;
-  margin: 15px auto 0;
 }
-/* line 136, sass/partials/_modal.scss */
+/* line 143, sass/partials/_modal.scss */
 .buy:hover {
   background: #fff;
 }
-/* line 139, sass/partials/_modal.scss */
+/* line 145, sass/partials/_modal.scss */
+.buy:hover a {
+  color: #5D3380;
+}
+/* line 149, sass/partials/_modal.scss */
 .buy a {
   color: #fff;
 }
-/* line 141, sass/partials/_modal.scss */
-.buy a:hover {
-  color: #5D3380;
-}
 
-/* line 147, sass/partials/_modal.scss */
+/* line 155, sass/partials/_modal.scss */
 .bought {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  transform: rotateX(180deg) translateZ(100px);
-  /*color: $body_background;*/
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 2px solid #5D3380;
+  transform: rotateX(90deg) translateZ(100px);
   background-color: #000;
-  color: #000;
-  padding: 1em;
-  text-align: center;
-  border: 1px solid #fff;
+  color: #fff;
+  display: block;
 }
 
-/* line 165, sass/partials/_modal.scss */
+/* line 166, sass/partials/_modal.scss */
+.quantity-input {
+  float: left;
+  margin-top: 7px;
+}
+/* line 169, sass/partials/_modal.scss */
 .quantity-input .icon {
   float: left;
 }
-/* line 168, sass/partials/_modal.scss */
+/* line 172, sass/partials/_modal.scss */
 .quantity-input .item_Quantity {
   float: left;
   border: 1px solid black;
-  width: 30px;
+  width: 50px;
   text-align: center;
   margin: 0 5px;
 }
 
-/* line 177, sass/partials/_modal.scss */
+/* line 181, sass/partials/_modal.scss */
 .icon {
   font-size: 28px;
-  width: 28px;
+  width: 32px;
   display: block;
   border: 2px solid #000;
   text-align: center;
   border-radius: 50%;
 }
-/* line 184, sass/partials/_modal.scss */
+/* line 188, sass/partials/_modal.scss */
 .icon.sidebar {
   color: #fff;
   border: 2px solid #fff;
 }
-/* line 188, sass/partials/_modal.scss */
+/* line 192, sass/partials/_modal.scss */
 .icon:hover {
   color: #5D3380;
   border: 2px solid #5D3380;
 }
 
-/* line 194, sass/partials/_modal.scss */
+/* line 198, sass/partials/_modal.scss */
 .plus {
   position: relative;
 }
 
-/* line 198, sass/partials/_modal.scss */
+/* line 202, sass/partials/_modal.scss */
 .close {
   position: absolute;
   top: 10px;
@@ -651,9 +654,18 @@ a:hover {
   color: #5D3380;
 }
 
+/* line 35, sass/partials/_base.scss */
+.site-wrapper {
+  height: 100%;
+}
+/* line 37, sass/partials/_base.scss */
+.site-wrapper ::-webkit-scrollbar {
+  display: none;
+}
+
 /* line 6, sass/main.scss */
 .site-container,
-.site-wrapper {
+.wrapper-outer {
   height: 100%;
 }
 
@@ -671,7 +683,7 @@ a:hover {
 }
 
 /* line 22, sass/main.scss */
-.site-wrapper {
+.wrapper-outer {
   position: relative;
   left: 0;
   z-index: 900;
