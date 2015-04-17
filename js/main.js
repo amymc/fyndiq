@@ -7,12 +7,14 @@ var skateStore = (function(){
         $content = $('#content'),
         $modalClose = $('#modal .close'),
         $item = $('.item'),
+        $itemRemove = $('.item-remove'),
         $outerWrapper = $('#wrapper-outer'),
         $siteContainer= $('#site-container'),
         $burger = $('#burger'),
         $emptyMsg = $('#empty-msg'),
         $cartItems = $('.simpleCart_items'),
         $cartTotal = $('#cart-total'),
+        $cartButton = $('#cart-button'),
         productNumber, newVal;
 
 
@@ -97,6 +99,8 @@ var skateStore = (function(){
         }
     }
 
+
+    //initialise simplecart plugin
     simpleCart({
         checkout:{
             type: "PayPal",
@@ -110,33 +114,53 @@ var skateStore = (function(){
             { view: function(item, column){return "x"} , label: false },
             { attr: "price" , label: false, view: 'currency' },
             { view: "remove" , text: "Remove" , label: false }
-            ]
+            ],
+
+            //event callbacks
+            afterAdd: animatePurchase,
+            update: isCartEmpty
     });
 
 
     function isCartEmpty(){
-        simpleCart.bind( 'update' , function( item ){
-            if (simpleCart.grandTotal() === 0){
-                $emptyMsg.css('display', 'block');
-                $cartItems.css('display', 'none');
-                $cartTotal.css('display', 'none');
-            }
-             else{
-                $emptyMsg.css('display', 'none');
-                $cartItems.css('display', 'block');
-                $cartTotal.css('display', 'block');
-            }
-        });
+        if (simpleCart.grandTotal() === 0){
+            $emptyMsg.css('display', 'block');
+            $cartItems.css('display', 'none');
+            $cartTotal.css('display', 'none');
+        }
+         else{
+            $emptyMsg.css('display', 'none');
+            $cartItems.css('display', 'block');
+            $cartTotal.css('display', 'block');
+        }
     }
+
+
+    function animatePurchase(){
+        $cartButton.addClass('animation');
+        setTimeout(function() {
+            $modalClose.trigger( "click" );
+            $cartButton.removeClass('animation');
+        }, 1000);
+    }
+    
+
+$(window).scroll(function() {
+    //alert('scrolly  is ' + window.scrollY + ' and page offset is ' + window.pageYOffset);
+    if (window.scrollY > 300) {
+        $('.header-container').addClass('shrink');
+    }
+    else {
+        $('.header-container').removeClass('shrink');
+    }
+})
 
 
     return {
         openMenu: openMenu(),
         openModal: openModal(),
         changeQuantity: changeQuantity(),
-        openCart: openCart(),
-        simpleCart: simpleCart(),
-        isCartEmpty: isCartEmpty()
+        openCart: openCart()
     };
  
 })();

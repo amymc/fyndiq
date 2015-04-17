@@ -11,12 +11,8 @@ header{
   width: 100%;
   z-index: 1300;
   background-color: #fff;
-  transition: all 0.5s;
-  /*height: 150px;
-  .header-shrink{
-    height: 30px;
-    font-size: 2em;
-  }*/
+  transition: all 0.3s;
+  height: 150px;
 }
 
 .header-container{
@@ -24,14 +20,36 @@ header{
   @media (max-width: 800px){
     padding-bottom: 110px;
   }
+  &.shrink{
+    .title-wrapper h1{
+      font-size: 30px;
+    }
+    > header{
+      height: 95px;
+    }
+    .skater-icon{
+      height: 70px;
+    }
+  }
 }
 
-h1{
+.title-wrapper{
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: left;
-  width: 300px;
-  left: calc(50% - 150px);
-  margin: 15px 0;
+  width: 580px;
+  left: calc(50% - 290px);
+  margin-bottom: 15px;
   transition: all 0.3s;
+  h1{
+      font-size: 50px;
+      display: inline-block;
+      transition: all 0.3s;
+  }
+  .skater-icon{
+    transition: all 0.3s;
+  }
 }

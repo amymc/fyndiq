@@ -90,30 +90,58 @@
   font-weight: 300;
   font-size: 14px;
 }
-/* line 82, sass/partials/_cart.scss */
-.simpleCart_items .item-remove {
+
+/* line 84, sass/partials/_cart.scss */
+.item-remove {
   padding: 10px 5px;
   border-radius: 5px;
-  border: 2px solid #5D3380;
   background-color: #5D3380;
   width: 80px;
   text-align: center;
   margin: 15px auto 0;
-}
-/* line 90, sass/partials/_cart.scss */
-.simpleCart_items .item-remove a {
-  color: #fff;
-}
-/* line 93, sass/partials/_cart.scss */
-.simpleCart_items .item-remove:hover {
-  background-color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
 }
 /* line 95, sass/partials/_cart.scss */
-.simpleCart_items .item-remove:hover a {
+.item-remove a {
+  color: #fff;
+}
+/* line 98, sass/partials/_cart.scss */
+.item-remove:before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #5D3380;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  -webkit-transform: scale3d(0.6, 0.6, 1);
+  transform: scale3d(0.6, 0.6, 1);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+/* line 116, sass/partials/_cart.scss */
+.item-remove:hover {
+  background-color: #fff;
+}
+/* line 118, sass/partials/_cart.scss */
+.item-remove:hover a {
   color: #5D3380;
 }
+/* line 121, sass/partials/_cart.scss */
+.item-remove:hover:before {
+  transform: scale3d(1, 1, 1);
+  opacity: 1;
+}
 
-/* line 102, sass/partials/_cart.scss */
+/* line 128, sass/partials/_cart.scss */
 .animation-effect.site-container {
   -webkit-perspective: 1500px;
   perspective: 1500px;
@@ -121,14 +149,14 @@
   perspective-origin: 0% 50%;
 }
 
-/* line 109, sass/partials/_cart.scss */
+/* line 135, sass/partials/_cart.scss */
 .animation-effect.cart-details-open .wrapper-outer, .animate.itemRow {
   -webkit-transform: translate3d(-300px, 0, 0);
   transform: translate3d(-300px, 0, 0);
   overflow-y: hidden;
 }
 
-/* line 115, sass/partials/_cart.scss */
+/* line 141, sass/partials/_cart.scss */
 .animation-effect.cart-details {
   z-index: 1;
   opacity: 1;
@@ -136,7 +164,7 @@
   transform: translate3d(0, -100%, 0);
 }
 
-/* line 122, sass/partials/_cart.scss */
+/* line 148, sass/partials/_cart.scss */
 .animation-effect.cart-details-open .animation-effect.cart-details {
   visibility: visible;
   -webkit-transition-timing-function: ease-in-out;
@@ -149,7 +177,7 @@
   transition-speed: 0.2s;
 }
 
-/* line 134, sass/partials/_cart.scss */
+/* line 160, sass/partials/_cart.scss */
 .cart-total {
   margin-top: 60px;
   text-align: center;
@@ -290,52 +318,75 @@
   opacity: 0;
   transition: all 0.3s;
   height: 100%;
-  /*will this break on mobile??*/
-  overflow: hidden;
+  overflow: scroll;
 }
-/* line 43, sass/partials/_modal.scss */
+/* line 42, sass/partials/_modal.scss */
 .modal-container .content {
   overflow: hidden;
   display: block;
   height: 300px;
 }
+@media (max-width: 800px) {
+  /* line 42, sass/partials/_modal.scss */
+  .modal-container .content {
+    height: auto;
+  }
+}
 
-/* line 50, sass/partials/_modal.scss */
+/* line 52, sass/partials/_modal.scss */
 .show .modal-container {
   transform: scale(1);
   opacity: 1;
 }
 
-/* line 55, sass/partials/_modal.scss */
+/* line 57, sass/partials/_modal.scss */
 .modal-overlay.show, .modal.show {
   opacity: 1;
   visibility: visible;
 }
 
-/* line 60, sass/partials/_modal.scss */
+/* line 62, sass/partials/_modal.scss */
 .title-section {
   text-align: center;
 }
-/* line 62, sass/partials/_modal.scss */
+/* line 64, sass/partials/_modal.scss */
 .title-section > .item_price {
   display: inline-block;
   font-weight: bold;
 }
 
-/* line 68, sass/partials/_modal.scss */
+/* line 70, sass/partials/_modal.scss */
 .full-description {
   text-align: justify;
   float: right;
   width: 60%;
 }
-
-/* line 74, sass/partials/_modal.scss */
-.full-image {
-  height: 220px;
-  float: left;
+@media (max-width: 800px) {
+  /* line 70, sass/partials/_modal.scss */
+  .full-description {
+    float: none;
+    width: 100%;
+  }
 }
 
-/* line 79, sass/partials/_modal.scss */
+/* line 80, sass/partials/_modal.scss */
+.full-image {
+  height: 280px;
+  float: left;
+  margin-top: -50px;
+  margin-left: -10px;
+}
+@media (max-width: 800px) {
+  /* line 80, sass/partials/_modal.scss */
+  .full-image {
+    margin: 0 auto;
+    width: 230px;
+    display: block;
+    float: none;
+  }
+}
+
+/* line 93, sass/partials/_modal.scss */
 input[type="text"] {
   padding: 10px;
   border: 1px solid #fff;
@@ -343,111 +394,174 @@ input[type="text"] {
   transition: box-shadow 0.3s, border 0.3s;
 }
 
-/* line 85, sass/partials/_modal.scss */
+/* line 99, sass/partials/_modal.scss */
 input[type="text"]:focus {
   border: solid 1px #707070;
   box-shadow: 0 0 5px 1px #969696;
 }
 
-/* line 90, sass/partials/_modal.scss */
+/* line 104, sass/partials/_modal.scss */
 .purchase-wrapper {
   overflow: hidden;
   float: right;
 }
 
-/* line 101, sass/partials/_modal.scss */
+/* line 110, sass/partials/_modal.scss */
 .cart-button {
   cursor: pointer;
   display: inline-block;
   width: 150px;
-  height: 100px;
-  margin: 5px 5px 0 15px;
-  margin-left: 15px;
-  transform-style: preserve-3d;
-  transition: transform 300ms;
-  	/*&.animate{
-  		-webkit-animation-name: rotate;
-    	-webkit-animation-duration: 1s;
-    	-webkit-animation-fill-mode: forwards;
-  	}*/
-}
-
-@-moz-keyframes rotate {
-  from {
-    transform: translateZ(0px) rotateX(0deg);
-  }
-  to {
-    transform: translateZ(-100px) rotateX(-90deg);
-  }
-}
-@-webkit-keyframes rotate {
-  from {
-    transform: translateZ(0px) rotateX(0deg);
-  }
-  to {
-    transform: translateZ(-100px) rotateX(-90deg);
-  }
-}
-@keyframes rotate {
-  from {
-    transform: translateZ(0px) rotateX(0deg);
-  }
-  to {
-    transform: translateZ(-100px) rotateX(-90deg);
-  }
-}
-/* line 128, sass/partials/_modal.scss */
-.animate .buy {
-  transform: translate3d(-300px, 0, 0);
-}
-
-/* line 132, sass/partials/_modal.scss */
-.animate .buy {
-  transform: translate3d(300px, 0, 0);
-}
-
-/* line 136, sass/partials/_modal.scss */
-.buy {
+  height: 40px;
+  text-align: center;
   padding: 10px 5px;
   border-radius: 5px;
   border: 2px solid #5D3380;
   background-color: #5D3380;
-  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  -webkit-backface-visibility: hidden;
 }
-/* line 145, sass/partials/_modal.scss */
-.buy:hover {
-  background: #fff;
-}
-/* line 147, sass/partials/_modal.scss */
-.buy:hover a {
+/* line 125, sass/partials/_modal.scss */
+.cart-button:hover {
   color: #5D3380;
+  background-color: #fff;
 }
-/* line 151, sass/partials/_modal.scss */
-.buy a {
+/* line 129, sass/partials/_modal.scss */
+.cart-button::before {
+  content: 'Add to cart';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+/* line 143, sass/partials/_modal.scss */
+.cart-button > span {
+  opacity: 0;
   color: #fff;
+  margin-left: -5px;
+  -webkit-transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-/* line 157, sass/partials/_modal.scss */
-.bought {
-  padding: 10px 5px;
-  border-radius: 5px;
-  border: 2px solid #5D3380;
-  transform: rotateX(90deg) translateZ(100px);
-  background-color: #000;
-  color: #fff;
-  display: block;
+/* line 156, sass/partials/_modal.scss */
+.animation {
+  background-color: #fff;
+  cursor: default;
+}
+/* line 159, sass/partials/_modal.scss */
+.animation::before {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+/* line 164, sass/partials/_modal.scss */
+.animation > span {
+  color: #5D3380;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* line 170, sass/partials/_modal.scss */
+.animation > span:nth-child(1) {
+  -webkit-transition-delay: 0.045s;
+  transition-delay: 0.045s;
+}
+/* line 174, sass/partials/_modal.scss */
+.animation > span:nth-child(2) {
+  -webkit-transition-delay: 0.09s;
+  transition-delay: 0.09s;
+}
+/* line 178, sass/partials/_modal.scss */
+.animation > span:nth-child(3) {
+  -webkit-transition-delay: 0.135s;
+  transition-delay: 0.135s;
+}
+/* line 182, sass/partials/_modal.scss */
+.animation > span:nth-child(4) {
+  -webkit-transition-delay: 0.18s;
+  transition-delay: 0.18s;
+}
+/* line 186, sass/partials/_modal.scss */
+.animation > span:nth-child(5) {
+  -webkit-transition-delay: 0.225s;
+  transition-delay: 0.225s;
+}
+/* line 190, sass/partials/_modal.scss */
+.animation > span:nth-child(6) {
+  -webkit-transition-delay: 0.27s;
+  transition-delay: 0.27s;
+}
+/* line 194, sass/partials/_modal.scss */
+.animation > span:nth-child(7) {
+  -webkit-transition-delay: 0.315s;
+  transition-delay: 0.315s;
+}
+/* line 198, sass/partials/_modal.scss */
+.animation > span:nth-child(8) {
+  -webkit-transition-delay: 0.36s;
+  transition-delay: 0.36s;
+}
+/* line 202, sass/partials/_modal.scss */
+.animation > span:nth-child(9) {
+  -webkit-transition-delay: 0.405s;
+  transition-delay: 0.405s;
+}
+/* line 206, sass/partials/_modal.scss */
+.animation > span:nth-child(10) {
+  -webkit-transition-delay: 0.45s;
+  transition-delay: 0.45s;
 }
 
-/* line 168, sass/partials/_modal.scss */
+/* line 212, sass/partials/_modal.scss */
+.button-wrapper {
+  position: relative;
+  float: right;
+  margin: 5px 5px 0 15px;
+}
+
+/*
+.cart-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #3f51b5;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  -webkit-transform: scale3d(0.6, 0.6, 1);
+  transform: scale3d(0.6, 0.6, 1);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+*/
+/* line 242, sass/partials/_modal.scss */
 .quantity-input {
   float: left;
-  margin-top: 7px;
+  margin-top: 8px;
 }
-/* line 171, sass/partials/_modal.scss */
+/* line 245, sass/partials/_modal.scss */
 .quantity-input .icon {
   float: left;
 }
-/* line 174, sass/partials/_modal.scss */
+/* line 248, sass/partials/_modal.scss */
 .quantity-input .item_Quantity {
   float: left;
   border: 1px solid black;
@@ -456,32 +570,32 @@ input[type="text"]:focus {
   margin: 0 5px;
 }
 
-/* line 183, sass/partials/_modal.scss */
+/* line 257, sass/partials/_modal.scss */
 .icon {
-  font-size: 28px;
+  font-size: 24px;
   width: 32px;
   display: block;
   border: 2px solid #000;
   text-align: center;
   border-radius: 50%;
 }
-/* line 190, sass/partials/_modal.scss */
+/* line 264, sass/partials/_modal.scss */
 .icon.sidebar {
   color: #fff;
   border: 2px solid #fff;
 }
-/* line 194, sass/partials/_modal.scss */
+/* line 268, sass/partials/_modal.scss */
 .icon:hover {
   color: #5D3380;
   border: 2px solid #5D3380;
 }
 
-/* line 200, sass/partials/_modal.scss */
+/* line 274, sass/partials/_modal.scss */
 .plus {
   position: relative;
 }
 
-/* line 204, sass/partials/_modal.scss */
+/* line 278, sass/partials/_modal.scss */
 .close {
   position: absolute;
   top: 10px;
@@ -504,117 +618,151 @@ header {
   width: 100%;
   z-index: 1300;
   background-color: #fff;
-  transition: all 0.5s;
-  /*height: 150px;
-  .header-shrink{
-    height: 30px;
-    font-size: 2em;
-  }*/
+  transition: all 0.3s;
+  height: 150px;
 }
 
-/* line 22, sass/partials/_header.scss */
+/* line 18, sass/partials/_header.scss */
 .header-container {
   padding-bottom: 40px;
 }
 @media (max-width: 800px) {
-  /* line 22, sass/partials/_header.scss */
+  /* line 18, sass/partials/_header.scss */
   .header-container {
     padding-bottom: 110px;
   }
 }
+/* line 24, sass/partials/_header.scss */
+.header-container.shrink .title-wrapper h1 {
+  font-size: 30px;
+}
+/* line 27, sass/partials/_header.scss */
+.header-container.shrink > header {
+  height: 95px;
+}
+/* line 30, sass/partials/_header.scss */
+.header-container.shrink .skater-icon {
+  height: 70px;
+}
 
-/* line 29, sass/partials/_header.scss */
-h1 {
+/* line 36, sass/partials/_header.scss */
+.title-wrapper {
   text-align: center;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: left;
-  width: 300px;
-  left: calc(50% - 150px);
-  margin: 15px 0;
+  width: 580px;
+  left: calc(50% - 290px);
+  margin-bottom: 15px;
+  transition: all 0.3s;
+}
+/* line 47, sass/partials/_header.scss */
+.title-wrapper h1 {
+  font-size: 50px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+/* line 52, sass/partials/_header.scss */
+.title-wrapper .skater-icon {
   transition: all 0.3s;
 }
 
 /* line 2, sass/partials/_hamburger.scss */
-#toggle {
-  padding: 30px 25px;
+.toggle {
+  padding: 30px 0 0 25px;
   z-index: 1600;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 0;
   float: left;
-}
-/* line 11, sass/partials/_hamburger.scss */
-#toggle:hover {
-  transition: top 0.4s;
+  transition: all 0.3s;
 }
 /* line 13, sass/partials/_hamburger.scss */
-#toggle:hover .burger:before {
-  top: -13px;
+.toggle:hover .burger {
+  background-color: #5D3380;
 }
-/* line 16, sass/partials/_hamburger.scss */
-#toggle:hover .burger:after {
-  top: 9px;
+/* line 15, sass/partials/_hamburger.scss */
+.toggle:hover .burger:before {
+  background-color: #5D3380;
+}
+/* line 18, sass/partials/_hamburger.scss */
+.toggle:hover .burger:after {
+  background-color: #5D3380;
+}
+@media (max-width: 800px) {
+  /* line 2, sass/partials/_hamburger.scss */
+  .toggle {
+    padding: 38px 0 0 15px;
+  }
 }
 
-/* line 22, sass/partials/_hamburger.scss */
+/*.burger-label{
+  margin: 20px 0 0 -4px;
+  &:hover{
+    color: $body_background;
+  }
+}*/
+/* line 35, sass/partials/_hamburger.scss */
 .burger {
   transition: all 0.3s;
   width: 28px;
   height: 4px;
   margin: 10px 0;
   z-index: 1400;
-  background: #5D3380;
+  background: #000;
 }
 
-/* line 31, sass/partials/_hamburger.scss */
+/* line 44, sass/partials/_hamburger.scss */
 .burger:before {
   top: -12px;
 }
 
-/* line 35, sass/partials/_hamburger.scss */
+/* line 48, sass/partials/_hamburger.scss */
 .burger:after {
   top: 8px;
 }
 
-/* line 39, sass/partials/_hamburger.scss */
-#toggle.open .burger {
+/* line 52, sass/partials/_hamburger.scss */
+.toggle.open .burger {
   background-color: transparent;
 }
 
-/* line 43, sass/partials/_hamburger.scss */
-#toggle.open .burger:before {
+/* line 56, sass/partials/_hamburger.scss */
+.toggle.open .burger:before {
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  background: #fff;
+  background-color: #fff;
   top: 3px;
 }
 
-/* line 49, sass/partials/_hamburger.scss */
-#toggle.open .burger:after {
+/* line 62, sass/partials/_hamburger.scss */
+.toggle.open .burger:after {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-  background: #fff;
+  background-color: #fff;
   top: 0px;
 }
 
-/* line 55, sass/partials/_hamburger.scss */
+/* line 68, sass/partials/_hamburger.scss */
 .burger:after, .burger:before {
   transition: all 0.3s;
   content: '';
   display: block;
   width: 28px;
   height: 4px;
-  background: #5D3380;
+  background-color: #000;
   position: relative;
 }
 
-/* line 65, sass/partials/_hamburger.scss */
+/* line 78, sass/partials/_hamburger.scss */
 .burger.burger-hide {
   -moz-transform: translate3d(-300px, 0, 0);
   -ms-transform: translate3d(-300px, 0, 0);
@@ -628,11 +776,6 @@ h1 {
   box-sizing: border-box;
 }
 
-/* line 12, sass/partials/_base.scss */
-html, body {
-  height: 100%;
-}
-
 /* line 16, sass/partials/_base.scss */
 html {
   background-color: #fff;
@@ -640,7 +783,7 @@ html {
 
 /* line 20, sass/partials/_base.scss */
 body {
-  font-family: helvetica, sans-serif;
+  font-family: Tahoma, sans-serif;
   margin: 0;
   background-color: #5D3380;
   padding-top: 0;
@@ -667,24 +810,24 @@ a:hover {
 
 /* line 6, sass/main.scss */
 .site-container,
-.wrapper-outer {
+.wrapper-outer, .site-wrapper {
   height: 100%;
+  overflow: scroll;
 }
 
-/* line 11, sass/main.scss */
+/* line 12, sass/main.scss */
 .wrapper-inner {
   position: relative;
   overflow: scroll;
-  height: 100%;
 }
 
-/* line 17, sass/main.scss */
+/* line 18, sass/main.scss */
 .site-container {
   position: relative;
   overflow: hidden;
 }
 
-/* line 22, sass/main.scss */
+/* line 23, sass/main.scss */
 .wrapper-outer {
   position: relative;
   left: 0;
@@ -700,18 +843,18 @@ a:hover {
   transition: transform, 0.5s;
 }
 
-/* line 34, sass/main.scss */
+/* line 35, sass/main.scss */
 .cart-icon {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
 }
-/* line 38, sass/main.scss */
+/* line 39, sass/main.scss */
 .cart-icon:hover {
   color: #5D3380;
 }
 
-/* line 43, sass/main.scss */
+/* line 44, sass/main.scss */
 .cart-container {
   float: right;
   display: inline-block;
@@ -719,7 +862,7 @@ a:hover {
   transition: all 0.3s;
 }
 @media (max-width: 800px) {
-  /* line 43, sass/main.scss */
+  /* line 44, sass/main.scss */
   .cart-container {
     float: none;
     clear: both;
@@ -730,7 +873,12 @@ a:hover {
   }
 }
 
-/* line 58, sass/main.scss */
+/* line 59, sass/main.scss */
+.bought {
+  -webkit-animation: color_change 10s alternate;
+}
+
+/* line 64, sass/main.scss */
 .cart-info {
   display: inline-block;
   vertical-align: middle;
@@ -738,27 +886,27 @@ a:hover {
   font-weight: bold;
 }
 
-/* line 65, sass/main.scss */
+/* line 71, sass/main.scss */
 .store-items {
   clear: both;
   max-width: 800px;
   width: 80%;
-  margin: 0 auto 60px;
+  margin: 70px auto;
   overflow: scroll;
 }
 @media (min-width: 501px) and (max-width: 725px) {
-  /* line 65, sass/main.scss */
+  /* line 71, sass/main.scss */
   .store-items {
     width: 400px;
   }
 }
 
-/* line 76, sass/main.scss */
+/* line 82, sass/main.scss */
 .fixed {
   position: fixed;
 }
 
-/* line 80, sass/main.scss */
+/* line 86, sass/main.scss */
 .item {
   position: relative;
   float: left;
@@ -766,14 +914,14 @@ a:hover {
   width: 190px;
 }
 @media (max-width: 500px) {
-  /* line 80, sass/main.scss */
+  /* line 86, sass/main.scss */
   .item {
     float: none;
   }
 }
 
 @media (min-width: 731px) and (max-width: 965px) {
-  /* line 90, sass/main.scss */
+  /* line 96, sass/main.scss */
   .col {
     width: 200px;
     width: calc(50% - 95px);
@@ -781,13 +929,13 @@ a:hover {
 }
 
 @media (min-width: 501px) and (max-width: 725px) {
-  /* line 97, sass/main.scss */
-  .col-center {
+  /* line 103, sass/main.scss */
+  .item:nth-of-type(2n) {
     float: right;
   }
 }
 
-/* line 103, sass/main.scss */
+/* line 109, sass/main.scss */
 .covering {
   position: absolute;
   top: 0;
@@ -799,17 +947,17 @@ a:hover {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* line 112, sass/main.scss */
+/* line 118, sass/main.scss */
 .image-container {
   overflow: hidden;
 }
 
-/* line 116, sass/main.scss */
+/* line 122, sass/main.scss */
 .image-container:hover .covering {
   opacity: 0.9;
 }
 
-/* line 120, sass/main.scss */
+/* line 126, sass/main.scss */
 .background {
   width: 100%;
   /*don't want to cover the text at the bottom*/
@@ -817,7 +965,7 @@ a:hover {
   background: white;
 }
 
-/* line 126, sass/main.scss */
+/* line 132, sass/main.scss */
 .foreground {
   height: 38px;
   bottom: 0;
@@ -826,27 +974,21 @@ a:hover {
   text-align: center;
 }
 
-/* line 133, sass/main.scss */
+/* line 139, sass/main.scss */
 img.resize {
   display: block;
   width: auto;
   height: 200px;
   margin: 20px auto;
 }
-@media (max-width: 740px) {
-  /* line 133, sass/main.scss */
-  img.resize {
-    height: 200px;
-  }
-}
 
-/* line 143, sass/main.scss */
+/* line 146, sass/main.scss */
 .product-info {
   margin: 0 30px;
   text-align: center;
 }
 
-/* line 148, sass/main.scss */
+/* line 151, sass/main.scss */
 .title {
   margin: 10px 0;
 }

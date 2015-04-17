@@ -1,23 +1,36 @@
 
- #toggle {
-  padding: 30px 25px;
+ .toggle {
+  padding: 30px 0 0 25px;
   z-index: 1600;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: 0;
   float: left;
+  transition: all 0.3s;
   &:hover{
-    transition: top 0.4s;
-    .burger:before{
-      top: -13px;
-    }
-    .burger:after{
-      top: 9px;
+    .burger{
+      background-color: $body_background;
+      &:before{
+        background-color: $body_background;
+      }
+      &:after{
+        background-color: $body_background;
+      }
     }
   }
+  @media(max-width: 800px){
+    padding: 38px 0 0 15px;
+  }
 }
+
+/*.burger-label{
+  margin: 20px 0 0 -4px;
+  &:hover{
+    color: $body_background;
+  }
+}*/
 
 .burger{
   transition: all 0.3s;
@@ -25,7 +38,7 @@
   height: 4px;
   margin: 10px 0;
   z-index: 1400;
-  background: $body_background;
+  background: #000;
 }
 
 .burger:before {
@@ -36,19 +49,19 @@
   top: 8px;
 }
 
-#toggle.open .burger{
+.toggle.open .burger{
   background-color: transparent;
 }
 
-#toggle.open .burger:before{
+.toggle.open .burger:before{
   @include transform(rotate(-45deg));
-  background: #fff;
+  background-color: #fff;
   top: 3px;
 }
 
-#toggle.open .burger:after{
+.toggle.open .burger:after{
   @include transform(rotate(45deg));
-  background: #fff;
+  background-color: #fff;
   top: 0px;
 }
 
@@ -58,7 +71,7 @@
   display: block;
   width: 28px;
   height: 4px;
-  background: $body_background;
+  background-color: #000;
   position: relative;
 }
 

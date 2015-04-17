@@ -8,12 +8,13 @@
     </head>
     <body>
 
-        <div id="trigger-overlay">
+    
             <a href="#" id="toggle" class="toggle">
                 <div id="burger" class="burger">
                 </div>
+                <!--div class="burger-label"> Menu </div-->
             </a>
-        </div>
+        
 
         <div id="menu-overlay" class="menu-overlay">
             <nav>
@@ -43,7 +44,10 @@
                 <div class="header-container">
                     <header>
 
-                        <h1>Skateboard Store</h1>
+                        <div class="title-wrapper">
+                            <h1>Skateboard Store</h1>
+                            <img class="skater-icon" alt="skateboarder icon" src="images/skater.png">
+                        </div>
 
                         <div class="cart-container">
                             <div class="cart-info simpleCart_quantity"></div>
@@ -208,9 +212,18 @@
                         <input type="text" value="1" class="item_Quantity">
                         <a class="plus icon" href="#">+</a>
                     </div>
-                    <div class="cart-button">
-                        <div class="buy"><a class="item_add" href="javascript:;"> Add to Cart </a></div>
-                        <div class="bought">Added!</div>
+                    <div class="button-wrapper">
+                        
+                            <a id="cart-button" class="cart-button item_add" href="javascript:;"> 
+                                <span>A</span>
+                                <span>d</span>
+                                <span>d</span>
+                                <span>e</span>
+                                <span>d</span>
+                                <span>!</span>
+
+                            </a>
+                       
                     </div>
                 </div>
                 <a class="close icon" href="#">&times;</a>
@@ -223,6 +236,6 @@
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js"></script>
         <script src="js/main.js"></script>
-  
+
     </body>
   </html> 
