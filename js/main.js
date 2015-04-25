@@ -148,16 +148,14 @@ var skateStore = (function(){
 
     function animateHeader(){
         $(window).scroll(function() {
-
            if ($( window ).width() >= 800){
-
                 if (window.scrollY > 300) {
                     $headerContainer.addClass('shrink');
                 }
                 else {
                     $headerContainer.removeClass('shrink');
                 }
-          }
+            }
         });
     }
 
