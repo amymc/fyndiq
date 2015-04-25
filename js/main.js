@@ -15,6 +15,7 @@ var skateStore = (function(){
         $cartItems = $('.simpleCart_items'),
         $cartTotal = $('#cart-total'),
         $cartButton = $('#cart-button'),
+        $headerContainer = $('#header-container'),
         productNumber, newVal;
 
 
@@ -87,7 +88,7 @@ var skateStore = (function(){
     function openCart() {
 
         $siteContainer.click(function(event){
-      		toggleSidebar();
+            toggleSidebar();
         });
 
         function toggleSidebar(){
@@ -145,22 +146,28 @@ var skateStore = (function(){
     }
     
 
-$(window).scroll(function() {
-    //alert('scrolly  is ' + window.scrollY + ' and page offset is ' + window.pageYOffset);
-    if (window.scrollY > 300) {
-        $('.header-container').addClass('shrink');
+    function animateHeader(){
+        $(window).scroll(function() {
+
+           if ($( window ).width() >= 800){
+
+                if (window.scrollY > 300) {
+                    $headerContainer.addClass('shrink');
+                }
+                else {
+                    $headerContainer.removeClass('shrink');
+                }
+          }
+        });
     }
-    else {
-        $('.header-container').removeClass('shrink');
-    }
-})
 
 
     return {
         openMenu: openMenu(),
         openModal: openModal(),
         changeQuantity: changeQuantity(),
-        openCart: openCart()
+        openCart: openCart(),
+        animateHeader: animateHeader()
     };
  
 })();

@@ -1,12 +1,12 @@
-
- .toggle {
-  padding: 30px 0 0 25px;
+.toggle {
+ // padding: 30px 0 0 25px;
   z-index: 1600;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
   position: fixed;
-  top: 0;
+  top: 40px;
+  left: 25px;
   float: left;
   transition: all 0.3s;
   &:hover{
@@ -20,17 +20,7 @@
       }
     }
   }
-  @media(max-width: 800px){
-    padding: 38px 0 0 15px;
-  }
 }
-
-/*.burger-label{
-  margin: 20px 0 0 -4px;
-  &:hover{
-    color: $body_background;
-  }
-}*/
 
 .burger{
   transition: all 0.3s;

@@ -12,7 +12,9 @@ header{
   z-index: 1300;
   background-color: #fff;
   transition: all 0.3s;
-  height: 150px;
+  @media (min-width:800px){
+    height: 150px;
+  }
 }
 
 .header-container{
@@ -44,12 +46,26 @@ header{
   left: calc(50% - 290px);
   margin-bottom: 15px;
   transition: all 0.3s;
+  @media (max-width: 800px){
+    margin-bottom: 0;
+  }
+  
   h1{
       font-size: 50px;
       display: inline-block;
       transition: all 0.3s;
+      @media (max-width: 501px){
+        display: none;
+      }
+      @media(min-width: 501px) and (max-width: 950px){
+        font-size: 30px;
+      }
   }
   .skater-icon{
     transition: all 0.3s;
+    height: 110px;
+    @media(max-width: 950px){
+        height: 70px;
+      }
   }
 }
