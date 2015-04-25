@@ -96,6 +96,7 @@ var skateStore = (function(){
                 $siteContainer.toggleClass('cart-details-open');
                 $siteContainer.toggleClass('animation-effect');
                 $burger.toggleClass('burger-hide');
+                $('html').toggleClass('cart-details-open');
             }
         }
     }

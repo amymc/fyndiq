@@ -793,12 +793,20 @@ header {
   box-sizing: border-box;
 }
 
-/* line 16, sass/partials/_base.scss */
+/* line 12, sass/partials/_base.scss */
 html {
   background-color: #fff;
 }
+/* line 14, sass/partials/_base.scss */
+html.cart-details-open {
+  height: 100%;
+}
+/* line 16, sass/partials/_base.scss */
+html.cart-details-open body {
+  height: 100%;
+}
 
-/* line 20, sass/partials/_base.scss */
+/* line 22, sass/partials/_base.scss */
 body {
   font-family: Tahoma, sans-serif;
   margin: 0;
@@ -806,21 +814,21 @@ body {
   padding-top: 0;
 }
 
-/* line 27, sass/partials/_base.scss */
+/* line 29, sass/partials/_base.scss */
 a {
   text-decoration: none;
   color: #000;
 }
-/* line 30, sass/partials/_base.scss */
+/* line 32, sass/partials/_base.scss */
 a:hover {
   color: #5D3380;
 }
 
-/* line 35, sass/partials/_base.scss */
+/* line 37, sass/partials/_base.scss */
 .site-wrapper {
   height: 100%;
 }
-/* line 37, sass/partials/_base.scss */
+/* line 39, sass/partials/_base.scss */
 .site-wrapper ::-webkit-scrollbar {
   display: none;
 }
