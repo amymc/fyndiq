@@ -54,8 +54,11 @@ var skateStore = (function(){
 
         $item.add($modalClose).click(function(){
             $outerWrapper.toggleClass('fixed');
-            $modal.toggleClass('show');
-            $modalOverlay.toggleClass('show'); 
+            $modalOverlay.toggleClass('show');
+            //delay the opening of the modal to allow time for the ajax content to load
+            setTimeout(function() {
+                $modal.toggleClass('show');
+            }, 200);
         })
 
     }
