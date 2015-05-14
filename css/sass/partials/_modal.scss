@@ -38,7 +38,6 @@
   opacity: 0;
   transition: all 0.3s;
   height: 100%;
-  overflow: scroll;
   @include backface-visibility (hidden);
   position: absolute;
   max-width: 630px;
@@ -49,6 +48,7 @@
   margin: auto;
   text-align: center;
   @media (max-width: 800px){
+    overflow: scroll;
     width: 100%;
     height: 100%;
   }

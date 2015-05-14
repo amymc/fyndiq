@@ -318,7 +318,6 @@
   opacity: 0;
   transition: all 0.3s;
   height: 100%;
-  overflow: scroll;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -334,6 +333,7 @@
 @media (max-width: 800px) {
   /* line 34, sass/partials/_modal.scss */
   .modal-container {
+    overflow: scroll;
     width: 100%;
     height: 100%;
   }
@@ -846,13 +846,13 @@ a:hover {
   overflow: scroll;
 }
 
-/* line 18, sass/main.scss */
+/* line 17, sass/main.scss */
 .site-container {
   position: relative;
   overflow: hidden;
 }
 
-/* line 23, sass/main.scss */
+/* line 22, sass/main.scss */
 .wrapper-outer {
   position: relative;
   left: 0;
@@ -860,7 +860,6 @@ a:hover {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  /*overflow-x: hidden;*/
   background: #fff;
   -moz-transition: -moz-transform, 0.3s;
   -o-transition: -o-transform, 0.3s;
@@ -868,18 +867,18 @@ a:hover {
   transition: transform, 0.3s;
 }
 
-/* line 35, sass/main.scss */
+/* line 33, sass/main.scss */
 .cart-icon {
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
 }
-/* line 39, sass/main.scss */
+/* line 37, sass/main.scss */
 .cart-icon:hover {
   color: #5D3380;
 }
 
-/* line 44, sass/main.scss */
+/* line 42, sass/main.scss */
 .cart-container {
   float: right;
   display: inline-block;
@@ -887,7 +886,7 @@ a:hover {
   transition: all 0.3s;
 }
 @media (max-width: 800px) {
-  /* line 44, sass/main.scss */
+  /* line 42, sass/main.scss */
   .cart-container {
     float: none;
     clear: both;
@@ -898,12 +897,12 @@ a:hover {
   }
 }
 
-/* line 59, sass/main.scss */
+/* line 57, sass/main.scss */
 .bought {
   -webkit-animation: color_change 10s alternate;
 }
 
-/* line 64, sass/main.scss */
+/* line 61, sass/main.scss */
 .cart-info {
   display: inline-block;
   vertical-align: middle;
@@ -911,7 +910,7 @@ a:hover {
   font-weight: bold;
 }
 
-/* line 71, sass/main.scss */
+/* line 68, sass/main.scss */
 .store-items {
   clear: both;
   max-width: 800px;
@@ -920,24 +919,24 @@ a:hover {
   overflow: scroll;
 }
 @media (min-width: 501px) and (max-width: 725px) {
-  /* line 71, sass/main.scss */
+  /* line 68, sass/main.scss */
   .store-items {
     width: 400px;
   }
 }
 @media (max-width: 800px) {
-  /* line 71, sass/main.scss */
+  /* line 68, sass/main.scss */
   .store-items {
     margin-top: 40px;
   }
 }
 
-/* line 85, sass/main.scss */
+/* line 82, sass/main.scss */
 .fixed {
   position: fixed;
 }
 
-/* line 89, sass/main.scss */
+/* line 86, sass/main.scss */
 .item {
   position: relative;
   float: left;
@@ -945,14 +944,14 @@ a:hover {
   width: 190px;
 }
 @media (max-width: 500px) {
-  /* line 89, sass/main.scss */
+  /* line 86, sass/main.scss */
   .item {
     float: none;
   }
 }
 
 @media (min-width: 731px) and (max-width: 965px) {
-  /* line 99, sass/main.scss */
+  /* line 96, sass/main.scss */
   .col {
     width: 200px;
     width: calc(50% - 95px);
@@ -960,13 +959,13 @@ a:hover {
 }
 
 @media (min-width: 501px) and (max-width: 725px) {
-  /* line 106, sass/main.scss */
+  /* line 103, sass/main.scss */
   .item:nth-of-type(2n) {
     float: right;
   }
 }
 
-/* line 112, sass/main.scss */
+/* line 109, sass/main.scss */
 .covering {
   position: absolute;
   top: 0;
@@ -978,17 +977,17 @@ a:hover {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* line 121, sass/main.scss */
+/* line 119, sass/main.scss */
 .image-container {
   overflow: hidden;
 }
 
-/* line 125, sass/main.scss */
+/* line 123, sass/main.scss */
 .image-container:hover .covering {
   opacity: 0.9;
 }
 
-/* line 129, sass/main.scss */
+/* line 127, sass/main.scss */
 .background {
   width: 100%;
   /*don't want to cover the text at the bottom*/
@@ -996,7 +995,7 @@ a:hover {
   background: white;
 }
 
-/* line 135, sass/main.scss */
+/* line 133, sass/main.scss */
 .foreground {
   height: 38px;
   bottom: 0;
@@ -1005,7 +1004,7 @@ a:hover {
   text-align: center;
 }
 
-/* line 142, sass/main.scss */
+/* line 140, sass/main.scss */
 img.resize {
   display: block;
   width: auto;
@@ -1013,13 +1012,13 @@ img.resize {
   margin: 20px auto;
 }
 
-/* line 149, sass/main.scss */
+/* line 147, sass/main.scss */
 .product-info {
   margin: 0 30px;
   text-align: center;
 }
 
-/* line 154, sass/main.scss */
+/* line 152, sass/main.scss */
 .title {
   margin: 10px 0;
 }
